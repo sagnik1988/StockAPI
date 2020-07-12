@@ -24,9 +24,11 @@ public class StockService {
     StockRepository stockRepository;
 
     /**
+     *  Validates input Tick and afterwards persists the same in the system.
+     *  Also updates the instrument specific and global statistics
      *
      * @param tick
-     * @return
+     * @return boolean
      */
     public boolean saveStock(final Tick tick) {
         if (DateTimeUtil.isIfOlderThan60Seconds(tick.getTimestamp())) {
@@ -43,10 +45,21 @@ public class StockService {
         }
     }
 
+    /**
+     * Returns the aggregated statistics for all ticks for a specific instruments which happened in last 60 seconds.
+     *
+     * @param companyName
+     * @return GlobalStatistics
+     */
     public GlobalStatistics getSpecificStatistics(String companyName) {
         return getStatistics(stockRepository.getSpecificEntrySet(companyName));
     }
 
+    /**
+     * Returns the aggregated statistics for all ticks across all instruments which happened in last 60 seconds.
+     *
+     * @return GlobalStatistics
+     */
     public GlobalStatistics getGlobalStatistics() {
         return getStatistics(stockRepository.getEntrySet());
     }
