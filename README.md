@@ -49,7 +49,10 @@ sample response body
 
 #### Invoke 
 
-Run using Spring Boot Maven plugin. 
+This project can be run using Spring Boot Maven plugin. Perform the below two commands.
+
+1. mvn clean install -- clean, build and runs all tests.
+2. mvn spring-boot:run -- clean, build, package and runs the project in the embedded tomcat server.
 
 This will download the mvn dependencies and start the SpringBoot application at port `8084`
 
