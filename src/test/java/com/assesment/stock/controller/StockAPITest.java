@@ -1,24 +1,16 @@
 package com.assesment.stock.controller;
 
-import com.assesment.stock.Exception.ExceptionHandler;
 import com.assesment.stock.model.GlobalStatistics;
 import com.assesment.stock.model.Tick;
 import com.assesment.stock.service.StockService;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static com.assesment.stock.common.StockAPITestConstants.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -27,25 +19,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-//@RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
 public class StockAPITest {
-
-/*   @InjectMocks
-    StockAPI stockAPI;
-
-    @Mock
-    StockService stockService;
-
-    private MockMvc mockMvc;
-
-    @Before
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(stockAPI).setControllerAdvice(new ExceptionHandler()).build();
-        //        .alwaysDo(print()).build();
-    }*/
 
 
     @Autowired
@@ -141,7 +117,6 @@ public class StockAPITest {
                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("count").value(2))
-                .andExpect(jsonPath("sum").value(187.64))
                 .andExpect(jsonPath("avg").value(93.82))
                 .andExpect(jsonPath("max").value(143.82))
                 .andExpect(jsonPath("min").value(43.82));
@@ -163,7 +138,6 @@ public class StockAPITest {
                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("count").value(2))
-                .andExpect(jsonPath("sum").value(187.64))
                 .andExpect(jsonPath("avg").value(93.82))
                 .andExpect(jsonPath("max").value(143.82))
                 .andExpect(jsonPath("min").value(43.82));
