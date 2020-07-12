@@ -2,8 +2,8 @@
 
 StockAPI provides the following capabilities
 1. create a Tick.
-2. Get Statistics of all Ticks across all instruments.
-3. Get Statistics of a specific Tick across all instruments.
+2. Get Statistics of all Ticks across all instruments in last 60 seconds.
+3. Get Statistics of a specific instruments in last 60 seconds.
 
 ## End-points
 
