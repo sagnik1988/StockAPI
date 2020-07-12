@@ -78,4 +78,4 @@ URL to access the application
 
 > Yes
 
-The Assignemnt helped me to dive deeper in the concepts og parallel programming and helped me to grow my knowledge in concurrent programming.
+The Assignemnt helped me to dive deeper in the concepts of parallel programming and helped me to grow my knowledge in concurrent programming.
