@@ -1,5 +1,6 @@
 package com.assesment.stock.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.text.DecimalFormat;
 @ToString
 public class GlobalStatistics implements Serializable {
     int count;
+    @JsonIgnore
     double sum;
     double avg;
     double max;
